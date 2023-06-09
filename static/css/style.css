@@ -20,3 +20,10 @@ td img {
 p {
   margin-bottom: 0.5rem !important;
 }
+
+.nav-link.active {
+  background-color: #0dcaf0;
+  border-radius: 4px;
+  color: #fff !important;
+  font-weight: 600;
+}
