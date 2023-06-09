@@ -1,0 +1,14 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p>{{collection_info.user_id}}</p>
+            <p>{{collection_info.package}}</p>
+            <p>{{collection_info.date}}</p>
+            <p>{{collection_info.billMonth}}</p>
+            <p>{{collection_info.amount}}</p>
+            <p>{{collection_info.img}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

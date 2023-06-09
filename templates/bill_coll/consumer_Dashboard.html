@@ -1,0 +1,81 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+
+<div class="container mt-3">
+  {% comment %}
+  <div class="row">
+    <div class="col">
+      <h3>User Profile (Consumer Dashboard)</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">Login Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Area</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img
+                class="img-thumbnail"
+                src="{{profile.photo.url}}"
+                alt="{{profile.user.username}}"
+              />
+            </td>
+            <td>{{profile.fullname}}</td>
+            <td>{{profile.user.username}}</td>
+            <td>{{profile.user.email}}</td>
+            <td>{{profile.address}}</td>
+            <td>{{profile.area}}</td>
+            <td>{{profile.city}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a href="{% url 'bill_coll:update_profile' pk=user.pk %}">Update Profile</a>
+  </div>
+  {% endcomment %}
+
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="card rounded-0 mt-3 mb-5">
+        <div class="card-header bg-info text-white rounded-0">My Profile</div>
+
+        <div class="card-body">
+          <img
+            class="img-thumbnail mb-3"
+            style="width: 100px"
+            src="{{profile.photo.url}}"
+            alt="{{profile.user.username}}"
+          />
+
+          <p>Fullname: {{profile.fullname}}</p>
+          <p>Login Name: {{profile.user.username}}</p>
+          <p>Email: {{profile.user.email}}</p>
+          <p>Package: {{profile.package.name}}</p>
+          <p>Address: {{ profile.address}}</p>
+          <p>Area: {{ profile.area}}</p>
+          <p>City: {{profile.city}}</p>
+
+          <p class="text-bg-info text-center p-1 rounded">
+            Paid Through Month:
+            <span class="fw-bold text-success-emphasis"
+              >{{profile.paidThruMonth}}</span
+            >
+          </p>
+
+          <a
+            class="btn btn-warning"
+            href="{% url 'bill_coll:update_profile' pk=user.pk %}"
+            >Update Profile</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

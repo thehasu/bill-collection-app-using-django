@@ -1,0 +1,32 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+<div class="container mt-3">
+  <div class="row">
+    {% if package_list %} {% for package in package_list %}
+    <div class="col-md-4">
+      <div class="card rounded-0">
+        <div class="card-header bg-info text-white rounded-0">
+          <h4 class="">Package Name: {{package.name}}</h4>
+        </div>
+        <div class="card-body">
+          <p>Number of Channels: {{package.numberofchannels}}</p>
+          <p>Number of HD Channels: {{package.numberofHDchannels}}</p>
+          <p>Price: ${{package.price}}</p>
+        </div>
+
+        <div class="card-footer text-end rounded-0">
+          <a
+            href="{% url 'bill_coll:signup' %}"
+            class="btn btn-primary rounded-0"
+          >
+            Subscribe
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    {% endfor %} {% else %}
+    <h2>no package available</h2>
+    {% endif %} {% endblock %}
+  </div>
+</div>

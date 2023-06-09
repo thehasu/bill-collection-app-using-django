@@ -1,0 +1,23 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Area</h2>
+                        </div>
+                <div class="card-body">
+                        <div>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                {{area_form.as_p}} {% csrf_token %}
+                                <input class="btn btn-primary mt-2" type="submit" value="Add Area" />
+                            </form>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

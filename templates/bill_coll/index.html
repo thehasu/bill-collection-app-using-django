@@ -1,0 +1,69 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <h1>collectionlist</h1>
+            {% if collection_list %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">package</th>
+                    <th scope="col">billMonth</th>
+                    <th scope="col">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--   {% for food in food_list %} -->
+                {% for collection in collection_list %}
+                <tr>
+                    <td>{{collection.package}}</td> <!-- <td>{{collection.package.name}}</td>-->
+                    <td>{{collection.billMonth}}</td>
+                    <td>{{collection.Amount}}</td>
+                    <td>
+                        <a class="btn btn-primary"
+                           href="{% url 'bill_coll:viewcollection' collection_id=collection.id %}">View</a>
+                        <a class="btn btn-primary"
+                           href="{% url 'bill_coll:editcollection' collection_id=collection.id %}">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- {% endfor %} -->
+                </tbody>
+            </table>
+            {% else %}
+            <h2>no collection available</h2>
+            {% endif %}
+            <!-- <h2>packagelist</h2>
+                        {% if package_list %}
+            <table class="table">
+              <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Number of Channels</th>
+                    <th scope="col">Number of HD Channels</th>
+                    <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for package in package_list %}
+              <tr>
+                  <td>{{package.name}}</td>
+                  <td>{{package.numberofchannels}}</td>
+                  <td>{{package.numberofHDchannels}}</td>
+                  <td>{{package.price}}</td>
+                  <td>
+                      <a class="btn btn-primary" href="{% url 'bill_coll:viewpackage' package_id=package.id %}">View</a>
+                      <a class="btn btn-secondary" href="{% url 'bill_coll:editpackage' package_id=package.id %}">Edit</a>
+                      <a class="btn btn-danger" href="{% url 'bill_coll:deletepackage' package_id=package.id %}">Delete</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+                        {% else %}
+                        <h2>no package available</h2>
+                        {% endif %} -->
+        </div>
+    </div>
+</div>
+{% endblock %}

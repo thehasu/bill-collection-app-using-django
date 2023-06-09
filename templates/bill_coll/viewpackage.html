@@ -1,0 +1,12 @@
+{% extends 'bill_coll/base.html' %} {% block body_block %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p>{{package_info.name}}</p>
+            <p>{{package_info.numberofchannels}}</p>
+            <p>{{package_info.numberofHDchannels}}</p>
+            <p>{{package_info.price}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

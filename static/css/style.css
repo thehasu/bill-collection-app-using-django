@@ -1,0 +1,22 @@
+/*
+input {
+    border-radius:0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid GREEN !important;
+}
+*/
+
+td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+td img {
+  width: 100%;
+  max-width: 100px !important;
+}
+
+p {
+  margin-bottom: 0.5rem !important;
+}
