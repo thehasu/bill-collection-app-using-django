@@ -145,40 +145,40 @@ def signup(request):
     user = Profile.objects.filter(
         id_user=request.user.id).first()  # prevents anonymous user
     dict = {'user': user}
-    # if request.user.is_authenticated: #is_authenticated will return true/false
-    # return redirect('/')
-    # else:
-    if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        password2 = request.POST['password2']
-        if password == password2:
-            if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email already exists.')
-                return redirect('/signup')
-            if User.objects.filter(username=username).exists():
-                messages.info(request, 'Username is already taken.')
-                return redirect('/signup')
-            else:
-                user = User.objects.create_user(
-                    username=username, email=email, password=password)
-                user.save()
-                # create a profile for new user
-                user_model = User.objects.get(username=username)
-                group = Group.objects.get(name='consumer')
-                user_model.groups.add(group)
-                new_profile = Profile.objects.create(
-                    user=user_model, id_user=user_model.id)
-                print(user_model)
-                print("id_user exists?", new_profile.id_user)
-                new_profile.save()
-                messages.success(request, 'Signup Successful')
-                return redirect('/signup')
+    if request.user.is_authenticated: #is_authenticated will return true/false
+        return redirect('/')
+    else:
+        if request.method == 'POST':
+            username = request.POST['username']
+            email = request.POST['email']
+            password = request.POST['password']
+            password2 = request.POST['password2']
+            if password == password2:
+                if User.objects.filter(email=email).exists():
+                    messages.info(request, 'Email already exists.')
+                    return redirect('/signup')
+                if User.objects.filter(username=username).exists():
+                    messages.info(request, 'Username is already taken.')
+                    return redirect('/signup')
+                else:
+                    user = User.objects.create_user(
+                        username=username, email=email, password=password)
+                    user.save()
+                    # create a profile for new user
+                    user_model = User.objects.get(username=username)
+                    group = Group.objects.get(name='consumer')
+                    user_model.groups.add(group)
+                    new_profile = Profile.objects.create(
+                        user=user_model, id_user=user_model.id)
+                    print(user_model)
+                    print("id_user exists?", new_profile.id_user)
+                    new_profile.save()
+                    messages.success(request, 'Signup Successful')
+                    return redirect('/signup')
 
-        else:
-            messages.info(request, 'Password didn\'t match.')
-            return redirect('/signup')
+            else:
+                messages.info(request, 'Password didn\'t match.')
+                return redirect('/signup')
 
     return render(request, 'bill_coll/signup.html', context=dict)
 
