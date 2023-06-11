@@ -7,6 +7,10 @@ input {
 }
 */
 
+h4 {
+  margin-bottom: 0 !important;
+}
+
 td {
   text-align: left;
   vertical-align: middle;

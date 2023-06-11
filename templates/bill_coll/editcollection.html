@@ -1,16 +1,28 @@
 {% extends 'bill_coll/base.html' %} {% block body_block %}
 <div class="container mt-3">
-    <div class="row">
-        <div class="col">
-            <h1>"{{title}}"</h1>
-            <div>
-                <form action="" method="POST">
-                    {{edit_collection_form.as_p}} {% csrf_token %} <!-- csrf token is used to prevent spamming -->
-
-                    <input class="btn btn-primary" type="submit" value="Edit Collection"/>
-                </form>
-            </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card border-info rounded-0">
+        <div
+          class="card-header d-flex align-items-center bg-info text-white rounded-0"
+        >
+          <h4>Edit Collection</h4>
         </div>
+        <div class="card-body">
+          <div>
+            <form action="" method="POST">
+              {{edit_collection_form.as_p}} {% csrf_token %}
+
+              <input
+                class="btn btn-primary"
+                type="submit"
+                value="Edit Collection"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
