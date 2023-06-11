@@ -39,12 +39,21 @@ class PackageForm(forms.ModelForm):
 class CollectionForm(forms.ModelForm):
     class Meta:
         model = models.Collection
-        fields = ['user_id', 'package', 'billMonth', 'amount']
+        fields = ['user_id', 'package', 'billMonth', 'amount', 'billDate']
         widgets = {
             'user_id': forms.Select(attrs={'class': 'form-control'}),
             'package': forms.Select(attrs={'class': 'form-control'}),
             'billMonth': forms.Select(attrs={'class': 'form-control'}),
-            'amount': forms.TextInput(attrs={'class': 'form-control'})
+            'amount': forms.TextInput(attrs={'class': 'form-control'}),
+            'billDate': forms.DateInput(attrs={'class': 'form-control'}),
+        }
+
+        labels = {
+            'user_id': 'User',
+            'package': 'Package',
+            'billMonth': 'Bill Month',
+            'amount': 'Bill Amount',
+            'billDate': 'Bill Date (yyyy-mm-dd)'
         }
 
 

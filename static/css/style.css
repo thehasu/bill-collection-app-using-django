@@ -27,3 +27,15 @@ p {
   color: #fff !important;
   font-weight: 600;
 }
+
+.errorlist {
+  margin-bottom: 0 !important;
+  margin-top: 1.5rem !important;
+  padding-left: 0 !important;
+}
+
+.errorlist li {
+  list-style-type: none;
+  font-size: 14px;
+  color: #e15c5c;
+}

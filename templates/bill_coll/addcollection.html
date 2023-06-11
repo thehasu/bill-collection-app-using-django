@@ -1,23 +1,29 @@
 {% extends 'bill_coll/base.html' %} {% block body_block %}
 
 <div class="container mt-3">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Add Collection</h2>
-                        </div>
-                <div class="card-body">
-                        <div>
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                {{collection_form.as_p}} {% csrf_token %}
-                                <input class="btn btn-primary mt-2" type="submit" value="Add Collection" />
-                            </form>
-                        </div>
-                </div>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card rounded-0 border-info">
+        <div
+          class="card-header bg-info d-flex align-items-center rounded-0 text-white"
+        >
+          <h4>Add Collection</h4>
         </div>
+        <div class="card-body">
+          <div>
+            <form action="" method="POST" enctype="multipart/form-data">
+              {{collection_form.as_p}} {% csrf_token %}
+              <input
+                class="btn btn-primary mt-2"
+                type="submit"
+                value="Add Collection"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

@@ -1,7 +1,9 @@
 from datetime import datetime
 
+import django
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 User = get_user_model()
@@ -43,7 +45,7 @@ class Collection(models.Model):
     user_id = models.ForeignKey(
         User, on_delete=models.SET_NULL, blank=True, null=True)
     package = models.ForeignKey(Package, on_delete=models.SET_NULL, null=True)
-    # date = models.DateField(auto_now_add=True);#max_length=50, blank=True, null=True)
+    billDate = models.DateField(auto_now_add=False,  blank=True, default=datetime.now)
     billMonth = models.ForeignKey(
         Month, on_delete=models.CASCADE, null=True, blank=True)
     amount = models.FloatField(default=0.0)
