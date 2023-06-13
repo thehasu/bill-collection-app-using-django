@@ -67,9 +67,11 @@
               >{{profile.paidThruMonth}}</span
             >
           </p>
+        </div>
 
+        <div class="card-footer text-end rounded-0 border-info">
           <a
-            class="btn btn-warning"
+            class="btn btn-warning rounded-0"
             href="{% url 'bill_coll:update_profile' pk=user.pk %}"
             >Update Profile</a
           >
