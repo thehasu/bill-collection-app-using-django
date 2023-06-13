@@ -14,5 +14,10 @@ $(document).ready(function () {
     });
   });
 
+  $('#id_billDate').datepicker({
+    todayHighlight: true,
+    format: 'mm-dd-yyyy',
+  });
+
   console.log('Hello World');
 });

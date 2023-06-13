@@ -59,13 +59,8 @@ def admin_Dashboard(request):
     if request.user.groups.exists():
         group = request.user.groups.all()[0].name
     isAdmin = ExtraFunctions.isAdmin(group)
-    # return redirect("/admin_Dashboard")
     user = request.user
-    print("hello", user)
-    # print("pk is", pk)
-    # user = get_object_or_404(User,username=pk)
-    print("user is", request.user.pk)
-    collection_list = Collection.objects.order_by('package')
+    collection_list = Collection.objects.order_by('billDate')[::-1]
     package_list = Package.objects.order_by('name')
     dict = {'title': "Dashboard", 'collection_list': collection_list,
             'user': user, 'user_id': request.user.pk, 'isAdmin': isAdmin}
@@ -88,10 +83,15 @@ def consumer_Dashboard(request):
 
 
 def Home(request):
-    user = Profile.objects.filter(id_user=request.user.pk).first()
+    # user = Profile.objects.filter(id_user=request.user.pk).first()
+    group = None
+    if request.user.groups.exists():
+        group = request.user.groups.all()[0].name
+    isAdmin = ExtraFunctions.isAdmin(group)
+    user = request.user
     print("user in home page", user)
     package_list = Package.objects.order_by('name')
-    dict = {'title': "Homepage", 'package_list': package_list, 'user': user}
+    dict = {'title': "Homepage", 'package_list': package_list, 'user': user, 'isAdmin': isAdmin}
     return render(request, 'bill_coll/Home.html', context=dict)
 
 

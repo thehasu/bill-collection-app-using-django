@@ -45,7 +45,7 @@ class Collection(models.Model):
     user_id = models.ForeignKey(
         User, on_delete=models.SET_NULL, blank=True, null=True)
     package = models.ForeignKey(Package, on_delete=models.SET_NULL, null=True)
-    billDate = models.DateField(auto_now_add=False,  blank=True, default=datetime.now)
+    billDate = models.DateField(blank=True, null=True)
     billMonth = models.ForeignKey(
         Month, on_delete=models.CASCADE, null=True, blank=True)
     amount = models.FloatField(default=0.0)
