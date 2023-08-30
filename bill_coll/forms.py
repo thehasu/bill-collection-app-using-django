@@ -53,7 +53,7 @@ class CollectionForm(forms.ModelForm):
             'package': 'Package',
             'billMonth': 'Bill Month',
             'amount': 'Bill Amount',
-            'billDate': 'Bill Date (mm-dd-yyyy)'
+            'billDate': 'Bill Date (yyyy-mm-dd)'
         }
 
 

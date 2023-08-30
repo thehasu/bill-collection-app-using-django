@@ -16,7 +16,7 @@ $(document).ready(function () {
 
   $('#id_billDate').datepicker({
     todayHighlight: true,
-    format: 'mm-dd-yyyy',
+    format: 'yyyy-mm-dd',
   });
 
   console.log('Hello World');
